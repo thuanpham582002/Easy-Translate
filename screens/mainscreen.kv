@@ -42,34 +42,37 @@
 
             BoxLayout:
                 size_hint: 1, 0.7
+                orientation: "horizontal"
                 BoxLayout:
-                    pos_hint: {"center_x": .5, "center_y": .5}
-                    size_hint: 0.15, 1
+                    orientation: "vertical"
+                    BoxLayout:
+                    BoxLayout:
+                        orientation: "vertical"
+                        MDIconButton:
+                            pos_hint: {"center_x": .7, "center_y": .5}
+                            icon: "account-multiple-outline"
+                        Label:
+                            pos_hint: {"center_x": .7, "center_y": .5}
+                            text: "Conversation"
+                            color: 0, 0, 0, 1
+                    BoxLayout:
+                BoxLayout:
                     orientation: "vertical"
                     MDIconButton:
                         pos_hint: {"center_x": .5, "center_y": .5}
-                        icon: "arrow-left"
+                        icon: "microphone"
+                        icon_size: "64sp"
                     Label:
-                        pos_hint: {"center_x": .5, "center_y": .5}
-                        text: "English"
-                        color: 0, 0, 0, 1
                 BoxLayout:
-                    size_hint: 0.7, 1
                     orientation: "vertical"
-                    MDIconButton:
-                        pos_hint: {"center_x": .5, "center_y": .5}
-                        icon: "arrow-right"
-                    Label:
-                        pos_hint: {"center_x": .5, "center_y": .5}
-                        text: "Vietnamese"
-                        color: 0, 0, 0, 1
-                BoxLayout:
-                    size_hint: 0.15, 1
-                    orientation: "vertical"
-                    MDIconButton:
-                        pos_hint: {"center_x": .5, "center_y": .5}
-                        icon: "arrow-left"
-                    Label:
-                        pos_hint: {"center_x": .5, "center_y": .5}
-                        text: "Vietnamese"
-                        color: 0, 0, 0, 1
+                    BoxLayout:
+                    BoxLayout:
+                        orientation: "vertical"
+                        MDIconButton:
+                            pos_hint: {"center_x": .3, "center_y": .5}
+                            icon: "camera-outline"
+                        Label:
+                            pos_hint: {"center_x": .3, "center_y": .5}
+                            text: "Camera"
+                            color: 0, 0, 0, 1
+                    BoxLayout:
