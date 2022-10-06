@@ -17,7 +17,7 @@ class EasyTranslateApp(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.theme_cls.primary_palette = "Purple"
-        self.title = "Awesome KivyMLLL"
+        self.title = "Ứng dụng cho người khiếm thị"
         change_statusbar_color(self.theme_cls.primary_color)
 
     def build(self):

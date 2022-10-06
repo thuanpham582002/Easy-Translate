@@ -1,6 +1,6 @@
 <MainScreen>:
     name: "Home"
-    MDBoxLayout:
+    BoxLayout:
         orientation: "vertical"
         size_hint: 1, 1
         BoxLayout:
@@ -20,24 +20,26 @@
                 size_hint: 0.15, 1
         BoxLayout:
             size_hint: 1, 0.6
-            TextInput:
+            MDTextField:
                 font_size: 26
                 hint_text: "Enter text here"
                 padding: 10
+                size_hint: 1, 1
 
         BoxLayout:
             size_hint: 1, 0.3
             orientation: "vertical"
             BoxLayout:
                 size_hint: 1, 0.3
-                Button:
+                padding: 10
+                MDRectangleFlatButton:
                     size_hint: 0.4, 1
                     text: "English"
                 MDIconButton:
                     icon: "swap-horizontal"
                     pos_hint: {"center_x": 0.5, "center_y": 0.5}
                     size_hint: 0.2, 1
-                Button:
+                MDRectangleFlatButton:
                     text: "Ni hảo"
                     size_hint: 0.4, 1
 
@@ -49,31 +51,33 @@
                     BoxLayout:
                     BoxLayout:
                         orientation: "vertical"
-                        MDIconButton:
+                        MDFloatingActionButton:
                             pos_hint: {"center_x": .7, "center_y": .5}
                             icon: "account-multiple-outline"
-                        Label:
+                        MDLabel:
                             pos_hint: {"center_x": .7, "center_y": .5}
+                            halign: "center"
                             text: "Conversation"
-                            color: 0, 0, 0, 1
                     BoxLayout:
                 BoxLayout:
                     orientation: "vertical"
-                    MDIconButton:
+                    MDFloatingActionButton:
                         pos_hint: {"center_x": .5, "center_y": .5}
                         icon: "microphone"
-                        icon_size: "64sp"
+                        icon_size: "50dp"
                     Label:
                 BoxLayout:
                     orientation: "vertical"
                     BoxLayout:
                     BoxLayout:
                         orientation: "vertical"
-                        MDIconButton:
+                        MDFloatingActionButton:
                             pos_hint: {"center_x": .3, "center_y": .5}
                             icon: "camera-outline"
-                        Label:
-                            pos_hint: {"center_x": .3, "center_y": .5}
+                            theme_icon_color: "Custom"
+                        MDLabel:
+                            padding_y : 100
+                            pos_hint: {"center_x": .3, "center_y": 1}
+                            halign: "center"
                             text: "Camera"
-                            color: 0, 0, 0, 1
                     BoxLayout:
