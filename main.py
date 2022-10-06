@@ -16,20 +16,27 @@ MDScreen:
             name: "Home"
             MDBoxLayout:
                 orientation: "vertical"
+                size_hint: 1, 1
                 BoxLayout:
                     size_hint: 1, 0.1
                     orientation: "horizontal"
                     Button:
-                        size_hint: 0.1, 1
+                        size_hint: 0.15, 1
                     Label:
-                        size_hint: 0.9, 1
+                        size_hint: 0.8, 1
                         text: "Easy Translate"
                         color: 0, 0, 0, 1
                     Button:
                         icon: "reload"
-                        size_hint: 0.1, 1
+                        size_hint: 0.15, 1
                         MDBoxLayout:
                 BoxLayout:
+                    size_hint: 1, 0.7
+                    TextInput:
+                        hint_text: "Enter text here"
+                        padding: 10
+                BoxLayout:
+                    size_hint: 1, 0.2                        
 
 """
 
