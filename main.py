@@ -2,44 +2,35 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivymd.app import MDApp
 from kivymd_extensions.akivymd.uix.statusbarcolor import change_statusbar_color
-
-# creating the App class in which name
-# .kv file is to be named PageLayout.kv
+from kivymd.uix.toolbar import MDTopAppBar
 
 kv = """
-<BottomAppbar>:
+<MyToolbar@MDTopAppBar>:
+    elevation: 10
 
-    MDBoxLayout:
-        orientation: "vertical"
+MDScreen:
+    ScreenManager:
+        id: screen_manager
+        
+        MDScreen:
+            name: "Home"
+            MDBoxLayout:
+                orientation: "vertical"
+                BoxLayout:
+                    size_hint: 1, 0.1
+                    orientation: "horizontal"
+                    Button:
+                        size_hint: 0.1, 1
+                    Label:
+                        size_hint: 0.9, 1
+                        text: "Easy Translate"
+                        color: 0, 0, 0, 1
+                    Button:
+                        icon: "reload"
+                        size_hint: 0.1, 1
+                        MDBoxLayout:
+                BoxLayout:
 
-        MyToolbar:
-            id: _toolbar
-
-        MDBoxLayout:
-
-    AKFloatingRoundedAppbar:
-
-        AKFloatingRoundedAppbarButtonItem:
-            icon: "magnify"
-            text: "Search"
-            on_release: root.toast(self.text)
-
-        AKFloatingRoundedAppbarButtonItem:
-            icon: "plus"
-            text: "Add"
-            on_release: root.toast(self.text)
-
-        AKFloatingRoundedAppbarButtonItem:
-            icon: "dots-vertical"
-            text: "Menu"
-            on_release: root.toast(self.text)
-
-        AKFloatingRoundedAppbarAvatarItem:
-            source: "assets/google.jpg"
-
-        AKFloatingRoundedAppbarAvatarItem:
-            source: "assets/google.jpg"
-            text: "Google"
 """
 
 
@@ -47,12 +38,12 @@ class MainApp(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.theme_cls.primary_palette = "Teal"
-        self.title = "Awesome KivyMD"
+        self.title = "Awesome KivyMLLL"
         change_statusbar_color(self.theme_cls.primary_color)
 
     def build(self):
         self.root = Builder.load_string(kv)
+        return self.root
 
 
-if __name__ == "__main__":
-    MainApp().run()
+MainApp().run()
