@@ -10,6 +10,9 @@
                 icon: "arrow-left"
                 size_hint: 0.15, 1
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                on_release:
+                    root.manager.transition.direction = 'left'
+					root.manager.current = '_main_screen_'
             Label:
                 size_hint: 0.8, 1
                 text: "Easy Translate"
@@ -18,17 +21,22 @@
                 icon: "history"
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
                 size_hint: 0.15, 1
-                on_release:
-                    root.manager.transition.direction = 'right'
-					root.manager.current = '_text_translate_screen_'
+
         BoxLayout:
-            size_hint: 1, 0.9
+            size_hint: 1, 0.8
             orientation: "vertical"
-            MDTextField:
-                font_size: 26
-                hint_text: "Enter Text"
-                padding: 10
+            MDScreen:
                 size_hint: 1, 0.5
+                MDTextField:
+                    id: text_field
+                    font_size: 26
+                    hint_text: "Enter Text"
+                    padding: 10
+                    multiline: True
+                    size_hint: 1, 1
+                MDIconButton:
+                    icon: "arrow-right"
+                    pos: text_field.width - self.width, 1
             MDTextField:
                 font_size: 26
                 text: "Translated text"
