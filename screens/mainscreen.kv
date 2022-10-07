@@ -1,5 +1,5 @@
 <MainScreen>:
-    name: "Home"
+    name: "_main_screen_"
     BoxLayout:
         orientation: "vertical"
         size_hint: 1, 1
@@ -18,6 +18,9 @@
                 icon: "account-box"
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
                 size_hint: 0.15, 1
+                on_release:
+                    root.manager.transition.direction = 'right'
+					root.manager.current = '_text_translate_screen_'
         BoxLayout:
             size_hint: 1, 0.6
             MDTextField:
@@ -25,6 +28,10 @@
                 hint_text: "Enter text here"
                 padding: 10
                 size_hint: 1, 1
+                on_touch_down:
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = '_text_translate_screen_'
+
 
         BoxLayout:
             size_hint: 1, 0.3
