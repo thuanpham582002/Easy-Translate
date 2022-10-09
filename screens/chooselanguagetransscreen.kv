@@ -1,0 +1,12 @@
+<ChooseLanguageTransScreen>:
+    name: '_choose_language_screen_'
+    BoxLayout:
+        orientation: 'vertical'
+        MDTextField:
+            icon_left: 'magnify'
+            id: search_field
+            hint_text: 'Search icon'
+            on_text: root.on_pre_enter()
+        ScrollView:
+            MDList:
+                id: language_list

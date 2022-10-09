@@ -7,6 +7,7 @@ from kivymd_extensions.akivymd.uix.statusbarcolor import change_statusbar_color
 from kivymd.uix.toolbar import MDTopAppBar
 from screens.mainscreen import MainScreen
 from screens.texttranslate import TextTranslateScreen
+from screens.chooselanguagetransscreen import ChooseLanguageTransScreen
 
 
 # clone UI from Google Translate
@@ -34,5 +35,6 @@ class EasyTranslateApp(MDApp):
                 return False
             self.root.current = self.root.previous()
             return True
+
 
 EasyTranslateApp().run()

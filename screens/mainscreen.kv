@@ -18,19 +18,20 @@
                 icon: "account-box"
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
                 size_hint: 0.15, 1
-                on_release:
-                    root.manager.transition.direction = 'right'
-					root.manager.current = '_text_translate_screen_'
+
         BoxLayout:
             size_hint: 1, 0.6
-            MDTextField:
+            orientation: "vertical"
+            padding: 10
+            MDTextButton:
                 font_size: 26
-                hint_text: "Enter text here"
-                padding: 10
-                size_hint: 1, 1
-                on_touch_down:
-                    root.manager.transition.direction = 'left'
-                    root.manager.current = '_text_translate_screen_'
+                size_hint:1, 0.2
+                text: "Enter Text Here"
+                on_press: root.change_screen('_text_translate_screen_')
+            BoxLayout:
+                MDTextButton:
+                    size_hint: 1, 1
+                    on_press: root.change_screen('_text_translate_screen_')
 
 
         BoxLayout:
@@ -40,15 +41,21 @@
                 size_hint: 1, 0.3
                 padding: 10
                 MDRectangleFlatButton:
+                    id: pre_lang_trans
                     size_hint: 0.4, 1
                     text: "English"
+                    on_release:
+                        root.show_choose_language_screen()
                 MDIconButton:
                     icon: "swap-horizontal"
                     pos_hint: {"center_x": 0.5, "center_y": 0.5}
                     size_hint: 0.2, 1
                 MDRectangleFlatButton:
+                    id: after_lang_trans
                     text: "Ni hảo"
                     size_hint: 0.4, 1
+                    on_release:
+                        root.show_choose_language_screen()
 
             BoxLayout:
                 size_hint: 1, 0.7
