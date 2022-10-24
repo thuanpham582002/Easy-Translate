@@ -33,6 +33,12 @@
         <td><img src="screenshots/windows_home.png" width="100%"></td>
         <td><img src="screenshots/windows_search_language.png" width="100%"></td>
     </tr>
+    <tr>
+        <td><strong>Screen Translate Text</strong></td>
+    </tr>
+    <tr>
+        <td><img src="screenshots/windows_screen_translate_text.png" width="100%"></td>
+    </tr>
 </table>
 
 ### Android
