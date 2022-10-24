@@ -23,8 +23,20 @@
 - [Windows]( Coming Soon )
 - [Android]( Coming Soon )
 ## Screenshots
-![Windows](screenshots/windows_home.png)
-![Android](Coming Soon)
+### Windows
+<table>
+    <tr>
+        <td><strong>Homescreen</strong></td>
+        <td><strong>Home select language</strong></td>
+    </tr>
+    <tr>
+        <td><img src="screenshots/windows_home.png" width="100%"></td>
+        <td><img src="screenshots/windows_search_language.png" width="100%"></td>
+    </tr>
+</table>
+
+### Android
+- Coming Soon
 ## Credits
 - [Python](https://www.python.org/)
 - [Kivy](https://kivy.org/)
