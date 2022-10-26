@@ -11,6 +11,10 @@ import screens.constant
 Builder.load_file('screens/texttranslate.kv')
 
 
+def is_translate_from_file():
+    return screens.constant.is_translate_from_file
+
+
 class TextTranslateScreen(Screen):
 
     def __init__(self, **kw):
@@ -23,9 +27,15 @@ class TextTranslateScreen(Screen):
         self.IDS = self.ids
         self.IDS.src_language.text = screens.constant.source_language
         self.IDS.dest_language.text = screens.constant.destination_language
+        if is_translate_from_file():
+            self.IDS.text_input.text = screens.constant.source_language_text
+            screens.constant.is_translate_from_file = False
 
     def on_pre_enter(self, *args):
         if self.IDS is not None:
+            if is_translate_from_file():
+                self.IDS.text_input.text = screens.constant.source_language_text
+                screens.constant.is_translate_from_file = False
             self.IDS.src_language.text = screens.constant.source_language
             self.IDS.dest_language.text = screens.constant.destination_language
 

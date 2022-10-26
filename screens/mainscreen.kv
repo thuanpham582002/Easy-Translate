@@ -24,6 +24,7 @@
             orientation: "vertical"
             padding: 10
             MDTextButton:
+                id: btn_enter_text_here
                 font_size: 26
                 size_hint:1, 0.2
                 text: "Enter Text Here"
@@ -92,6 +93,8 @@
                             pos_hint: {"center_x": .3, "center_y": .5}
                             icon: "file"
                             theme_icon_color: "Custom"
+                            on_release:
+                                root.show_choose_file_screen()
                         MDLabel:
                             pos_hint: {"center_x": .3, "center_y": 1}
                             halign: "center"

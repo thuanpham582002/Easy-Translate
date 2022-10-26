@@ -51,3 +51,17 @@ list_language = list(list_language_dict.keys())
 
 source_language = 'English'
 destination_language = 'Vietnamese'
+
+source_language_text = ''
+
+is_translate_from_file = False
+
+list_file_ext_support = [
+    '.txt',
+    '.doc',
+    '.docx',
+    '.pdf',
+]
+
+message_dont_support_file = 'This file is not supported, please choose another file (only support .txt .dox .pdf .img ' \
+                            '.jpg .jpeg) '
