@@ -26,28 +26,33 @@
             orientation: "vertical"
             MDScreen:
                 size_hint: 1, 0.5
-                TextInput:
-                    id: text_input
-                    font_size: 26
-#                    font_name: "RobotoMono-Regular"
-                    font_name: "Arial"
-                    hint_text: "Enter Text"
-                    padding: 10
-                    multiline: True
-                    size_hint: 1, 1
+                ScrollView:
+                    id: scroll_view
+                    MDTextField:
+                        id: text_input
+                        font_size: 26
+    #                    font_name: "RobotoMono-Regular"
+                        font_name: "Arial"
+                        hint_text: "Enter Text"
+                        padding: 10
+                        multiline: True
                 MDFloatingActionButton:
                     id: translate_button
                     icon: "arrow-right"
-                    pos: text_input.width - self.width, dp(16)
+                    pos: scroll_view.width - self.width, 0
                     on_release:
                         root.translate(text_input.text)
-            MDTextField:
-                id: translated_text
-                font_size: 26
-                font_name: "Arial"
-                text: "Translated text"
-                size_hint: 1, 0.5
-                disabled: True
+            ScrollView:
+                size_hint: 1, .5
+                MDTextField:
+                    id: translated_text
+                    font_size: 26
+                    font_name: "Arial"
+                    text: "Translated text"
+                    multiline: True
+                    size_hint: 1, None
+                    height: self.minimum_height
+                    readonly: True
 
         BoxLayout:
             size_hint: 1, 0.1

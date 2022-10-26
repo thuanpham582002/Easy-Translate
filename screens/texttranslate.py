@@ -28,7 +28,6 @@ class TextTranslateScreen(Screen):
         if self.IDS is not None:
             self.IDS.src_language.text = screens.constant.source_language
             self.IDS.dest_language.text = screens.constant.destination_language
-            print(screens.constant.source_language, screens.constant.destination_language)
 
     def translate(self, text):
         # check internet connection
@@ -37,10 +36,13 @@ class TextTranslateScreen(Screen):
         try:
             request = requests.get(url, timeout=timeout)
             translator = Translator()
-            result = translator.translate(text, src=list_language_dict[self.ids.src_language.text],
-                                          dest=list_language_dict[self.ids.dest_language.text])
-            self.ids.translated_text.text = result.text
-            print(self.ids.translated_text.text)
+            try:
+                result = translator.translate(text, src=list_language_dict[self.ids.src_language.text],
+                                              dest=list_language_dict[self.ids.dest_language.text])
+                self.ids.translated_text.text = result.text
+                print(self.ids.translated_text.text)
+            except TypeError:
+                pass
         except (requests.ConnectionError, requests.Timeout) as exception:
             self.ids.translated_text.text = "Please check your internet connection"
 

@@ -14,6 +14,9 @@ class MainScreen(Screen):
         super().__init__(**kw)
         self.IDS = None
 
+    # on_kv_post is called after the kv file is loaded
+    # and all widgets are created
+    # on_kv_post run only once time when screen is created
     def on_kv_post(self, base_widget):
         # self._kv_loaded = True
         super().on_kv_post(base_widget)
@@ -26,7 +29,6 @@ class MainScreen(Screen):
         if self.IDS is not None:
             self.IDS.src_language.text = screens.constant.source_language
             self.IDS.dest_language.text = screens.constant.destination_language
-            print(screens.constant.source_language, screens.constant.destination_language)
 
     def show_choose_language_screen(self, type: str):
         show = ChooseLanguageTransScreen()
