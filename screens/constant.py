@@ -1,3 +1,4 @@
+
 list_language_dict = {
     'Detect language': 'auto',
     'English': 'en',
@@ -48,5 +49,5 @@ list_language_dict = {
 }
 list_language = list(list_language_dict.keys())
 
-source_language = 'Detect language'
+source_language = 'English'
 destination_language = 'Vietnamese'

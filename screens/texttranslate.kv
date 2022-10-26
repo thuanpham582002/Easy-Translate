@@ -26,9 +26,11 @@
             orientation: "vertical"
             MDScreen:
                 size_hint: 1, 0.5
-                MDTextField:
+                TextInput:
                     id: text_input
                     font_size: 26
+#                    font_name: "RobotoMono-Regular"
+                    font_name: "Arial"
                     hint_text: "Enter Text"
                     padding: 10
                     multiline: True
@@ -42,6 +44,7 @@
             MDTextField:
                 id: translated_text
                 font_size: 26
+                font_name: "Arial"
                 text: "Translated text"
                 size_hint: 1, 0.5
                 disabled: True
@@ -53,12 +56,21 @@
                 size_hint: 1, 0.3
                 padding: 10
                 MDRectangleFlatButton:
+                    id: src_language
                     size_hint: 0.4, 1
                     text: "English"
+                    on_release:
+                        root.show_choose_language_screen('src')
                 MDIconButton:
+                    id: swap_language
                     icon: "swap-horizontal"
                     pos_hint: {"center_x": 0.5, "center_y": 0.5}
                     size_hint: 0.2, 1
+                    on_release:
+                        root.swap_language()
                 MDRectangleFlatButton:
-                    text: "Ni hảo"
+                    id: dest_language
+                    text: "Vietnamese"
                     size_hint: 0.4, 1
+                    on_release:
+                        root.show_choose_language_screen('dest')

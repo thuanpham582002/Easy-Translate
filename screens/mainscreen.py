@@ -2,13 +2,31 @@ from kivy.lang import Builder
 from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
 from kivy.atlas import Atlas
+
+import screens.constant
 from screens.chooselanguagetransscreen import ChooseLanguageTransScreen
-from screens.constant import source_language, destination_language
 
 Builder.load_file('screens/mainscreen.kv')
 
 
 class MainScreen(Screen):
+    def __init__(self, **kw):
+        super().__init__(**kw)
+        self.IDS = None
+
+    def on_kv_post(self, base_widget):
+        # self._kv_loaded = True
+        super().on_kv_post(base_widget)
+        print(self.ids)
+        self.IDS = self.ids
+        self.IDS.src_language.text = screens.constant.source_language
+        self.IDS.dest_language.text = screens.constant.destination_language
+
+    def on_pre_enter(self, *args):
+        if self.IDS is not None:
+            self.IDS.src_language.text = screens.constant.source_language
+            self.IDS.dest_language.text = screens.constant.destination_language
+            print(screens.constant.source_language, screens.constant.destination_language)
 
     def show_choose_language_screen(self, type: str):
         show = ChooseLanguageTransScreen()
@@ -21,14 +39,16 @@ class MainScreen(Screen):
 
         on_press = lambda *args: popup_screen.dismiss()
         if type == 'src':
-            show.on_pre_enter(self.ids.src_language, on_press)
+            show.on_pre_enter(self.ids.src_language, on_press, type)
         else:
-            show.on_pre_enter(self.ids.dest_language, on_press)
+            show.on_pre_enter(self.ids.dest_language, on_press, type)
         popup_screen.open()
 
     def swap_language(self):
         src = self.ids.src_language.text
         dest = self.ids.dest_language.text
+        screens.constant.source_language = dest
+        screens.constant.destination_language = src
         self.ids.src_language.text = dest
         self.ids.dest_language.text = src
 
