@@ -5,7 +5,6 @@ from googletrans import Translator
 
 Builder.load_file('screens/texttranslate.kv')
 
-
 class TextTranslateScreen(Screen):
     def translate(self, text):
         # check internet connection

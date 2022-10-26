@@ -4,58 +4,9 @@ from kivy.uix.screenmanager import Screen
 from kivymd.uix.button import MDRectangleFlatButton
 from kivymd.uix.list import OneLineListItem
 
+from screens.constant import list_language
+
 Builder.load_file('screens/chooselanguagetransscreen.kv')
-
-list_language_dict = {
-    'Detect language': 'auto',
-    'English': 'en',
-    'Vietnamese': 'vi',
-    'Japanese': 'ja',
-    'Korean': 'ko',
-    'Chinese': 'zh-CN',
-    'French': 'fr',
-    'German': 'de',
-    'Italian': 'it',
-    'Spanish': 'es',
-    'Russian': 'ru',
-    'Portuguese': 'pt',
-    'Arabic': 'ar',
-    'Hindi': 'hi',
-    'Indonesian': 'id',
-    'Malay': 'ms',
-    'Thai': 'th',
-    'Turkish': 'tr',
-    'Urdu': 'ur',
-    'Bengali': 'bn',
-    'Dutch': 'nl',
-    'Filipino': 'tl',
-    'Greek': 'el',
-    'Hebrew': 'iw',
-    'Hmong': 'hmn',
-    'Hungarian': 'hu',
-    'Icelandic': 'is',
-    'Javanese': 'jw',
-    'Kannada': 'kn',
-    'Khmer': 'km',
-    'Lao': 'lo',
-    'Latin': 'la',
-    'Mongolian': 'mn',
-    'Nepali': 'ne',
-    'Norwegian': 'no',
-    'Persian': 'fa',
-    'Polish': 'pl',
-    'Romanian': 'ro',
-    'Serbian': 'sr',
-    'Sinhala': 'si',
-    'Slovak': 'sk',
-    'Swahili': 'sw',
-    'Swedish': 'sv',
-    'Tamil': 'ta',
-    'Telugu': 'te',
-    'Ukrainian': 'uk',
-}
-list_language = list(list_language_dict.keys())
-
 
 class ChooseLanguageTransScreen(Screen):
     def on_pre_enter(self, *args):

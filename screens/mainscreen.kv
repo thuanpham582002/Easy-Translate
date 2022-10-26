@@ -47,9 +47,12 @@
                     on_release:
                         root.show_choose_language_screen('src')
                 MDIconButton:
+                    id: swap_language
                     icon: "swap-horizontal"
                     pos_hint: {"center_x": 0.5, "center_y": 0.5}
                     size_hint: 0.2, 1
+                    on_release:
+                        root.swap_language()
                 MDRectangleFlatButton:
                     id: dest_language
                     text: "Vietnamese"

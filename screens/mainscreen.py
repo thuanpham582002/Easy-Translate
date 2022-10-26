@@ -2,13 +2,14 @@ from kivy.lang import Builder
 from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
 from kivy.atlas import Atlas
-
 from screens.chooselanguagetransscreen import ChooseLanguageTransScreen
+from screens.constant import source_language, destination_language
 
 Builder.load_file('screens/mainscreen.kv')
 
 
 class MainScreen(Screen):
+
     def show_choose_language_screen(self, type: str):
         show = ChooseLanguageTransScreen()
         # truyền call back vào đây
@@ -24,6 +25,12 @@ class MainScreen(Screen):
         else:
             show.on_pre_enter(self.ids.dest_language, on_press)
         popup_screen.open()
+
+    def swap_language(self):
+        src = self.ids.src_language.text
+        dest = self.ids.dest_language.text
+        self.ids.src_language.text = dest
+        self.ids.dest_language.text = src
 
     def change_screen(self, screen_name):
         self.manager.current = screen_name
