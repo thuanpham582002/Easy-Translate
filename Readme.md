@@ -9,7 +9,7 @@
 - Translate text from text.
 - Translate text from image. (coming soon)
 - Translate text from voice. (coming soon)
-- Translate text from file (txt, docx, pdf, etc). (coming soon)
+- Translate text from file (txt, docx, pdf, etc).
 - Translate text from url (web page).(coming soon)
 ## How to use
 - Download the app for your device.
