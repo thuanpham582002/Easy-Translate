@@ -8,7 +8,7 @@ from kivymd.uix.toolbar import MDTopAppBar
 from screens.mainscreen import MainScreen
 from screens.texttranslate import TextTranslateScreen
 from screens.chooselanguagetransscreen import ChooseLanguageTransScreen
-
+from jnius import autoclass
 
 # clone UI from Google Translate
 
@@ -35,6 +35,5 @@ class EasyTranslateApp(MDApp):
                 return False
             self.root.current = self.root.previous()
             return True
-
 
 EasyTranslateApp().run()

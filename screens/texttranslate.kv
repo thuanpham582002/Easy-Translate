@@ -27,16 +27,20 @@
             MDScreen:
                 size_hint: 1, 0.5
                 MDTextField:
-                    id: text_field
+                    id: text_input
                     font_size: 26
                     hint_text: "Enter Text"
                     padding: 10
                     multiline: True
                     size_hint: 1, 1
                 MDFloatingActionButton:
+                    id: translate_button
                     icon: "arrow-right"
-                    pos: text_field.width - self.width  , dp(16)
+                    pos: text_input.width - self.width, dp(16)
+                    on_release:
+                        root.translate(text_input.text)
             MDTextField:
+                id: translated_text
                 font_size: 26
                 text: "Translated text"
                 size_hint: 1, 0.5

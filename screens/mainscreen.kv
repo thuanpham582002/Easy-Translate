@@ -41,21 +41,21 @@
                 size_hint: 1, 0.3
                 padding: 10
                 MDRectangleFlatButton:
-                    id: pre_lang_trans
+                    id: src_language
                     size_hint: 0.4, 1
                     text: "English"
                     on_release:
-                        root.show_choose_language_screen()
+                        root.show_choose_language_screen('src')
                 MDIconButton:
                     icon: "swap-horizontal"
                     pos_hint: {"center_x": 0.5, "center_y": 0.5}
                     size_hint: 0.2, 1
                 MDRectangleFlatButton:
-                    id: after_lang_trans
-                    text: "Ni hảo"
+                    id: dest_language
+                    text: "Vietnamese"
                     size_hint: 0.4, 1
                     on_release:
-                        root.show_choose_language_screen()
+                        root.show_choose_language_screen('dest')
 
             BoxLayout:
                 size_hint: 1, 0.7
@@ -87,10 +87,10 @@
                         orientation: "vertical"
                         MDFloatingActionButton:
                             pos_hint: {"center_x": .3, "center_y": .5}
-                            icon: "camera-outline"
+                            icon: "file"
                             theme_icon_color: "Custom"
                         MDLabel:
                             pos_hint: {"center_x": .3, "center_y": 1}
                             halign: "center"
-                            text: "Camera"
+                            text: "File"
                     BoxLayout:
