@@ -6,7 +6,9 @@ from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
 from kivy.atlas import Atlas
 import screens.constant
+from screens.PopUpScreen import showChooseLanguageScreen, showHistoryScreen
 from screens.chooselanguagetransscreen import ChooseLanguageTransScreen
+from screens.historytranslatescreen import HistoryTranslateScreen
 
 Builder.load_file('screens/mainscreen.kv')
 
@@ -40,20 +42,10 @@ class MainScreen(Screen):
             self.IDS.dest_language.text = screens.constant.destination_language
 
     def show_choose_language_screen(self, type: str):
-        show = ChooseLanguageTransScreen()
-        # truyền call back vào đây
-        # hàm update nhận sự kiện onlick, truyền callback vào khi nhận hàm update đấy
-        # để đóng pop up = popup.dismiss()
-
-        popup_screen = Popup(title='Choose Language', content=show, size_hint=(0.8, 0.8),
-                             background='atlas://data/images/defaulttheme/button_pressed')
-
-        on_press = lambda *args: popup_screen.dismiss()
         if type == 'src':
-            show.on_pre_enter(self.ids.src_language, on_press, type)
+            showChooseLanguageScreen(self.ids.src_language, type)
         else:
-            show.on_pre_enter(self.ids.dest_language, on_press, type)
-        popup_screen.open()
+            showChooseLanguageScreen(self.ids.dest_language, type)
 
     def swap_language(self):
         src = self.ids.src_language.text
@@ -112,6 +104,12 @@ class MainScreen(Screen):
             self.IDS.btn_enter_text_here.text = screens.constant.message_dont_support_file
 
         self.selection = []
+
+    def show_about_me_screen(self):
+        pass
+
+    def show_history_screen(self, type: str):
+        showHistoryScreen(type)
 
     def change_screen(self, screen_name):
         self.manager.current = screen_name

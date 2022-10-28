@@ -17,9 +17,12 @@
                 text: "Easy Translate"
                 color: 0, 0, 0, 1
             MDIconButton:
-                icon: "history"
+                id: link_detect
+                icon: "link-variant"
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
                 size_hint: 0.15, 1
+                on_release:
+                    root.show_detect_url()
 
         BoxLayout:
             size_hint: 1, 0.8

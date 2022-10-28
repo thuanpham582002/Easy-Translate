@@ -1,3 +1,6 @@
+import json
+
+from model.historytranslate import HistoryTranslate
 
 list_language_dict = {
     'Detect language': 'auto',
@@ -51,17 +54,28 @@ list_language = list(list_language_dict.keys())
 
 source_language = 'English'
 destination_language = 'Vietnamese'
-
 source_language_text = ''
-
 is_translate_from_file = False
-
 list_file_ext_support = [
     '.txt',
     '.doc',
     '.docx',
     '.pdf',
 ]
-
+list_url_detect = []
 message_dont_support_file = 'This file is not supported, please choose another file (only support .txt .dox .pdf .img ' \
                             '.jpg .jpeg) '
+history_translate = []
+
+
+def save_history_translate():
+    with open('history_translate.json', 'w') as file:
+        json.dump([ob.__dict__ for ob in history_translate], file)
+
+
+def load_history_translate():
+    try:
+        with open('history_translate.json', 'r') as file:
+            return json.load(file, object_hook=lambda d: HistoryTranslate(**d))
+    except FileNotFoundError:
+        return []

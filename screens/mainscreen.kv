@@ -7,17 +7,28 @@
             size_hint: 1, 0.1
             orientation: "horizontal"
             MDIconButton:
-                icon: "star"
-                size_hint: 0.15, 1
+                id: about_me
+                icon: "account-box"
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: 0.3, 1
+                on_release: root.open_about_me_screen()
             Label:
-                size_hint: 0.8, 1
+                size_hint: 1, 1
                 text: "Easy Translate"
                 color: 0, 0, 0, 1
             MDIconButton:
-                icon: "account-box"
-                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                id: bookmark
+                icon: "star"
                 size_hint: 0.15, 1
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                on_release: root.show_history_screen('bookmark')
+
+            MDIconButton:
+                id: history
+                icon: "history"
+                size_hint: 0.15, 1
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                on_release: root.show_history_screen('history')
 
         BoxLayout:
             size_hint: 1, 0.6
@@ -28,11 +39,11 @@
                 font_size: 26
                 size_hint:1, 0.2
                 text: "Enter Text Here"
-                on_press: root.change_screen('_text_translate_screen_')
+                on_release: root.change_screen('_text_translate_screen_')
             BoxLayout:
                 MDTextButton:
                     size_hint: 1, 1
-                    on_press: root.change_screen('_text_translate_screen_')
+                    on_release: root.change_screen('_text_translate_screen_')
 
 
         BoxLayout:
