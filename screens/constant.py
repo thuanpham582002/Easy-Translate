@@ -51,7 +51,8 @@ list_language_dict = {
     'Ukrainian': 'uk',
 }
 list_language = list(list_language_dict.keys())
-
+text_input = ''
+translated_text = ''
 source_language = 'English'
 destination_language = 'Vietnamese'
 source_language_text = ''

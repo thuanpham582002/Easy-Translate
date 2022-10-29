@@ -1,7 +1,6 @@
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager
 from kivymd.app import MDApp
-from kivymd_extensions.akivymd.uix.statusbarcolor import change_statusbar_color
 from kivymd.uix.toolbar import MDTopAppBar
 
 import screens.constant
@@ -22,7 +21,6 @@ class EasyTranslateApp(MDApp):
         super().__init__(**kwargs)
         self.theme_cls.primary_palette = "Purple"
         self.title = "Easy Translate"
-        change_statusbar_color(self.theme_cls.primary_color)
         screens.constant.history_translate = screens.constant.load_history_translate()
 
     def build(self):
@@ -37,6 +35,5 @@ class EasyTranslateApp(MDApp):
                 return False
             self.root.current = self.root.previous()
             return True
-
 
 EasyTranslateApp().run()

@@ -18,10 +18,14 @@ def get_index_of_item_in_history_translate(item: HistoryTranslate):
 
 class HistoryTranslateScreen(Screen):
     type = 'history'
+    callback = None
 
     def __init__(self, *args):
         if len(args) == 1:
             self.type = args[0]
+        elif len(args) == 2:
+            self.type = args[0]
+            self.callback = args[1]
         super().__init__()
 
     def on_pre_enter(self, *args):
@@ -79,6 +83,10 @@ class HistoryTranslateScreen(Screen):
                 get_index_of_item_in_history_translate(x.ids['TwoLineAvatarIconListItem'])])
         screens.constant.save_history_translate()
 
+    def trigger_item_release(self, x: TwoLineAvatarIconListItem):
+        if self.callback is not None:
+            self.callback(x.children[1].children[0].ids['TwoLineAvatarIconListItem'])
+
     def get_two_line_avatar_icon_widget(self, x: HistoryTranslate):
         if x.bookmark:
             print("get_two_line_avatar_icon_star_list_item")
@@ -99,7 +107,8 @@ class HistoryTranslateScreen(Screen):
                 ids={'TwoLineAvatarIconListItem': x}
             ),
             text=x.source_lang + ":" + x.source,
-            secondary_text=x.target_lang + ":" + x.target)
+            secondary_text=x.target_lang + ":" + x.target,
+            on_release=lambda this: self.trigger_item_release(this))
 
     def get_two_line_avatar_icon_star_list_item(self, x: HistoryTranslate):
         return TwoLineAvatarIconListItem(IconLeftWidget(
@@ -113,7 +122,9 @@ class HistoryTranslateScreen(Screen):
                 ids={'TwoLineAvatarIconListItem': x}
             ),
             text=x.source_lang + ":" + x.source,
-            secondary_text=x.target_lang + ":" + x.target)
+            secondary_text=x.target_lang + ":" + x.target,
+            on_release=lambda this: self.trigger_item_release(this)
+        )
 
     def on_leave(self, *args):
         self.ids.history_translate_list.clear_widgets()

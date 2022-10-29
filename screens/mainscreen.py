@@ -12,7 +12,6 @@ from screens.historytranslatescreen import HistoryTranslateScreen
 
 Builder.load_file('screens/mainscreen.kv')
 
-
 def get_ext_file(path):
     return path.split('.')[-1]
 
@@ -41,11 +40,11 @@ class MainScreen(Screen):
             self.IDS.src_language.text = screens.constant.source_language
             self.IDS.dest_language.text = screens.constant.destination_language
 
-    def show_choose_language_screen(self, type: str):
-        if type == 'src':
-            showChooseLanguageScreen(self.ids.src_language, type)
+    def show_choose_language_screen(self, type_screen: str):
+        if type_screen == 'src':
+            showChooseLanguageScreen(self.ids.src_language, type_screen)
         else:
-            showChooseLanguageScreen(self.ids.dest_language, type)
+            showChooseLanguageScreen(self.ids.dest_language, type_screen)
 
     def swap_language(self):
         src = self.ids.src_language.text
@@ -108,8 +107,8 @@ class MainScreen(Screen):
     def show_about_me_screen(self):
         pass
 
-    def show_history_screen(self, type: str):
-        showHistoryScreen(type)
+    def show_history_screen(self, type_screen: str):
+        showHistoryScreen(type_screen, self.change_screen)
 
     def change_screen(self, screen_name):
         self.manager.current = screen_name
