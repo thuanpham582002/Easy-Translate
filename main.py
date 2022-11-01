@@ -11,10 +11,8 @@ from jnius import autoclass
 
 
 # clone UI from Google Translate
-
 class WindowManager(ScreenManager):
     pass
-
 
 class EasyTranslateApp(MDApp):
     def __init__(self, **kwargs):
