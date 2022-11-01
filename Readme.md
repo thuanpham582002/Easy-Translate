@@ -1,16 +1,17 @@
-# Easy Translate App for Windows and Android (Beta)
+# Easy Translate App for Windows and Android
+### made by Pham Tien Thuan, Pham Quoc Viet and Vu Huu Dat for assignment in Python course at PTIT.
 ## Description
 - This is a simple app that allows you to translate text from one language to another.
-- This app is available for Windows and Android.
-- This app is still in beta, so there may be some bugs.
-- This app is made with Python and Kivy.
+- Easy Translate is available for both Windows and Android.
+- This app is still in beta, so there might be some potential bugs.
+- Easy Translate is written in Python using Kivy library for interactive user interface.
 ## Features
 - Translate text from one language to another.
 - Translate text from text.
 - Translate text from image. (coming soon)
 - Translate text from voice. (coming soon)
-- Translate text from file (txt, docx, pdf, etc). (coming soon)
-- Translate text from url (web page).(coming soon)
+- Translate text from file (txt, docx, pdf, etc). 
+- Translate text from url (web page).
 - Local history and bookmark
 ## How to use
 - Download the app for your device.
