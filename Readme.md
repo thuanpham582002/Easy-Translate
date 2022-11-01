@@ -1,4 +1,4 @@
-# Easy Translate App for Windows and Android (Beta)
+# Easy Translate App for Windows and Android
 ### made by Pham Tien Thuan, Pham Quoc Viet and Vu Huu Dat for assignment in Python course at PTIT.
 ## Description
 - This is a simple app that allows you to translate text from one language to another.
