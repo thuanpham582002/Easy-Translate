@@ -53,6 +53,27 @@ class MainScreen(Screen):
         screens.constant.destination_language = src
         self.ids.src_language.text = dest
         self.ids.dest_language.text = src
+        from kivy import platform
+        if platform == "android":
+            from jnius import autoclass
+            Locale = autoclass('java.util.Locale')
+            PythonActivity = autoclass('org.kivy.android.PythonActivity')
+            TextToSpeech = autoclass('android.speech.tts.TextToSpeech')
+            tts = TextToSpeech(PythonActivity.mActivity, None)
+
+            # Play something in english
+            tts.setLanguage(Locale.US)
+            tts.speak('Hello World.', TextToSpeech.QUEUE_FLUSH, None)
+
+            # Queue something in french
+            tts.setLanguage(Locale.FRANCE)
+            tts.speak('Bonjour tout le monde.', TextToSpeech.QUEUE_ADD, None)
+        elif platform == "ios":
+            pass
+        elif platform == "win":
+            print("Windows")
+        from kivy.core.clipboard import Clipboard
+        Clipboard.copy('Data')
 
     def show_choose_file_screen(self):
         filechooser.open_file(on_selection=self.handle_selection)
