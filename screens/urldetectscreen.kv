@@ -1,5 +1,15 @@
 <UrlDetectScreen>:
     name: '_url_detect_screen_'
-    ScrollView:
-        MDList:
-            id: url_detect_list
+    BoxLayout:
+        size_hint: (1, 1)
+        orientation: 'vertical'
+        ScrollView:
+            bar_color: [0, 0, 255, 1]
+            bar_inactive_color: [1, 1, 255, 1]
+            bar_width: 12
+            bar_margin: 2
+            do_scroll_x: False
+            do_scroll_y: True
+            MDList:
+                id: url_detect_list
+
