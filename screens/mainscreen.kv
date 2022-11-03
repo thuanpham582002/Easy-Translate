@@ -38,7 +38,9 @@
                 id: btn_enter_text_here
                 font_size: 26
                 size_hint:1, 0.2
+                theme_text_color: 'Custom'
                 text: "Enter Text Here"
+                text_color: (0.5,0,1,1)
                 on_release: root.change_screen('_text_translate_screen_')
             BoxLayout:
                 MDTextButton:
@@ -51,29 +53,30 @@
             orientation: "vertical"
             BoxLayout:
                 size_hint: 1, 0.3
-                padding: 10
+                padding: "20dp", "0dp", "20dp", "0dp"
                 MDRectangleFlatButton:
                     id: src_language
-                    size_hint: 0.4, 1
+                    size_hint: 0.4, 1.3
                     text: "English"
                     on_release:
                         root.show_choose_language_screen('src')
                 MDIconButton:
                     id: swap_language
                     icon: "swap-horizontal"
-                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
-                    size_hint: 0.2, 1
+                    pos_hint: {"center_x": 0.5, "center_y": 0.8}
+                    size_hint: 0.4, 2
                     on_release:
                         root.swap_language()
                 MDRectangleFlatButton:
+                    adaptive_size: True
                     id: dest_language
                     text: "Vietnamese"
-                    size_hint: 0.4, 1
+                    size_hint: 0.4, 1.3
                     on_release:
                         root.show_choose_language_screen('dest')
 
             BoxLayout:
-                size_hint: 1, 0.7
+                size_hint: 1, 1
                 orientation: "horizontal"
                 BoxLayout:
                     orientation: "vertical"
@@ -83,10 +86,14 @@
                         MDFloatingActionButton:
                             pos_hint: {"center_x": .7, "center_y": .5}
                             icon: "account-multiple-outline"
+                            icon_size: "30dp"
                         MDLabel:
+                            adaptive_size: True
                             pos_hint: {"center_x": .7, "center_y": .5}
                             halign: "center"
                             text: "Conversation"
+                            allow_selection: True
+                            padding: "0dp", "0dp"
                     BoxLayout:
                 BoxLayout:
                     orientation: "vertical"
@@ -103,11 +110,15 @@
                         MDFloatingActionButton:
                             pos_hint: {"center_x": .3, "center_y": .5}
                             icon: "file"
+                            icon_size: "30dp"
                             theme_icon_color: "Custom"
                             on_release:
                                 root.show_choose_file_screen()
                         MDLabel:
+                            adaptive_size: True
                             pos_hint: {"center_x": .3, "center_y": 1}
                             halign: "center"
-                            text: "File"
+                            text: "Choose File"
+                            allow_selection: True
+                            padding: "0dp", "0dp"
                     BoxLayout:

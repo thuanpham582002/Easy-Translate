@@ -30,21 +30,6 @@
             MDScreen:
                 size_hint: 1, 0.5
                 padding: 10
-                MDFloatingActionButton:
-                    id: translate_button
-                    icon: "arrow-right"
-                    pos: scroll_view.width - self.width, scroll_view.height - 60
-                    icon_size:20
-                    on_release:
-                        root.translate(text_input.text)
-                MDFloatingActionButton:
-                    id: translate_button
-                    icon: "arrow-right"
-                    pos: scroll_view.width - self.width - 60, scroll_view.height - 60
-                    icon_size:20
-                    on_release:
-                        root.translate(text_input.text)
-
                 ScrollView:
                     id: scroll_view
                     MDTextField:
