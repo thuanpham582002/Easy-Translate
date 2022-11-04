@@ -60,7 +60,6 @@ class HistoryTranslateScreen(Screen):
             if x is self.ids.history_translate_list.children[i].children[1].children[0]:
                 index_widget = i
                 break
-
         if self.type == 'history':
             self.ids.history_translate_list.remove_widget(
                 self.ids.history_translate_list.children[index_widget])
@@ -130,3 +129,14 @@ class HistoryTranslateScreen(Screen):
         self.ids.history_translate_list.clear_widgets()
         print("on_leave")
         return super().on_leave(*args)
+
+    def remove_all_list_item(self):
+        if self.type == 'history':
+            self.ids.history_translate_list.clear_widgets();
+            screens.constant.history_translate.clear();
+        else:
+            for i in screens.constant.history_translate:
+                if i.bookmark:
+                    i.bookmark = False
+            self.ids.history_translate_list.clear_widgets();
+        screens.constant.save_history_translate()
