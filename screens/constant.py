@@ -71,6 +71,8 @@ history_translate = []
 
 def save_history_translate():
     with open('history_translate.json', 'w') as file:
+        import os
+        print(os.getcwd())
         json.dump([ob.__dict__ for ob in history_translate], file)
 
 

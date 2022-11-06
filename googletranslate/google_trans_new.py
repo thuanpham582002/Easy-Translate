@@ -253,3 +253,27 @@ class google_translator:
             # Request failed
             log.debug(str(e))
             raise google_new_transError(tts=self)
+
+    def tts(self, text = "Xin chào từ outroom2014", lang_tgt='en'):
+        if lang_tgt == 'auto':
+            lang_tgt = 'en'
+        print("TTS" + text + lang_tgt)
+        API_ENDPOINT = "https://translate.google.com/translate_tts"
+        headers = {'User-Agent': "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:53.0) Gecko/20100101 Firefox/53.0"}
+
+        params = {
+            'ie': 'UTF-8',
+            'q': text,
+            'tl': lang_tgt,
+            'client': 'gtx'
+        }
+
+        r = requests.get(API_ENDPOINT, params=params, headers=headers)
+        print(r.status_code)
+
+        with open("clip.mp3", 'wb') as f:
+            f.write(r.content)
+            # path file
+            import os
+            path = os.path.abspath("clip.mp3")
+            return path
