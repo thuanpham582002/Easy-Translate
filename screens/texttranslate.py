@@ -1,6 +1,6 @@
 import socket
 
-from kivy import Logger
+from kivy import Logger, platform
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 import googletranslate.google_trans_new
@@ -47,7 +47,8 @@ class TextTranslateScreen(Screen):
         file = sys.argv[0]
         self.pathname = os.path.dirname(file) + '/clip.mp3'
         self.pathname = self.pathname.replace('/', '\\')
-        self.mplayer_andr = MusicPlayerAndroid()
+        if platform == 'android':
+            self.mplayer_andr = MusicPlayerAndroid()
         self.translator = googletranslate.google_trans_new.google_translator()
 
     def on_kv_post(self, base_widget):
@@ -150,7 +151,6 @@ class TextTranslateScreen(Screen):
 
 class MusicPlayerAndroid(object):
     def __init__(self):
-
         from jnius import autoclass
         MediaPlayer = autoclass('android.media.MediaPlayer')
         self.mplayer = MediaPlayer()
