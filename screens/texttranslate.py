@@ -40,6 +40,12 @@ class TextTranslateScreen(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
         self.IDS = None
+<<<<<<< Updated upstream
+=======
+        if platform == 'android':
+            self.mplayer_andr = MusicPlayerAndroid()
+        self.translator = googletranslate.google_trans_new.google_translator()
+>>>>>>> Stashed changes
 
     def on_kv_post(self, base_widget):
         super().on_kv_post(base_widget)
