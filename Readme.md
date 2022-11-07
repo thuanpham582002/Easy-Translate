@@ -30,11 +30,14 @@
     <tr>
         <td><strong>Homescreen</strong></td>
         <td><strong>Select language</strong></td>
-        <td><strong>File Chooser</strong></td>
     </tr>
     <tr>
         <td><img src="screenshots/window/windows_home.png" width="100%"></td>
         <td><img src="screenshots/window/windows_search_language.png" width="100%"></td>
+    <tr>
+        <td><strong>File Chooser</strong></td>
+    </tr>
+    <tr>
         <td><img src="screenshots/window/windows_file_translate.png" width="100%"></td>
     <tr>
         <td><strong>Bookmark</strong></td>
