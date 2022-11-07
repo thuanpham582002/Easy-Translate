@@ -42,11 +42,6 @@ class TextTranslateScreen(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
         self.IDS = None
-        import os
-        import sys
-        file = sys.argv[0]
-        self.pathname = os.path.dirname(file) + '/clip.mp3'
-        self.pathname = self.pathname.replace('/', '\\')
         if platform == 'android':
             self.mplayer_andr = MusicPlayerAndroid()
         self.translator = googletranslate.google_trans_new.google_translator()
