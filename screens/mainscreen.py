@@ -6,11 +6,12 @@ from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
 from kivy.atlas import Atlas
 import screens.constant
-from screens.PopUpScreen import showChooseLanguageScreen, showHistoryScreen
+from screens.PopUpScreen import showChooseLanguageScreen, showHistoryScreen, showAboutUsScreen
 from screens.chooselanguagetransscreen import ChooseLanguageTransScreen
 from screens.historytranslatescreen import HistoryTranslateScreen
 
 Builder.load_file('screens/mainscreen.kv')
+
 def get_ext_file(path):
     return path.split('.')[-1]
 
@@ -52,6 +53,27 @@ class MainScreen(Screen):
         screens.constant.destination_language = src
         self.ids.src_language.text = dest
         self.ids.dest_language.text = src
+        from kivy import platform
+        if platform == "android":
+            from jnius import autoclass
+            Locale = autoclass('java.util.Locale')
+            PythonActivity = autoclass('org.kivy.android.PythonActivity')
+            TextToSpeech = autoclass('android.speech.tts.TextToSpeech')
+            tts = TextToSpeech(PythonActivity.mActivity, None)
+
+            # Play something in english
+            tts.setLanguage(Locale.US)
+            tts.speak('Hello World.', TextToSpeech.QUEUE_FLUSH, None)
+
+            # Queue something in french
+            tts.setLanguage(Locale.FRANCE)
+            tts.speak('Bonjour tout le monde.', TextToSpeech.QUEUE_ADD, None)
+        elif platform == "ios":
+            pass
+        elif platform == "win":
+            print("Windows")
+        from kivy.core.clipboard import Clipboard
+        Clipboard.copy('Data')
 
     def show_choose_file_screen(self):
         filechooser.open_file(on_selection=self.handle_selection)
@@ -103,8 +125,8 @@ class MainScreen(Screen):
 
         self.selection = []
 
-    def show_about_me_screen(self):
-        pass
+    def show_about_us_screen(self):
+        showAboutUsScreen()
 
     def show_history_screen(self, type_screen: str):
         showHistoryScreen(type_screen, self.change_screen)

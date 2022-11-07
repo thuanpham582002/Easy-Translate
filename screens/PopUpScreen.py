@@ -3,6 +3,7 @@ from kivymd.uix.button import MDRectangleFlatButton
 
 import screens.constant
 from model.historytranslate import HistoryTranslate
+from screens.aboutusscreen import AboutUsScreen
 from screens.chooselanguagetransscreen import ChooseLanguageTransScreen
 from screens.historytranslatescreen import HistoryTranslateScreen
 from screens.urldetectscreen import UrlDetectScreen
@@ -51,3 +52,11 @@ def showHistoryScreen(type_screen: str, callback=None):
         popup_screen = Popup(title='Bookmark', content=show, size_hint=(0.8, 0.8),
                              background='atlas://data/images/defaulttheme/button_pressed')
         popup_screen.open()
+
+def showAboutUsScreen():
+    show = AboutUsScreen()
+    popup_screen = Popup(title='About Us', content=show, size_hint=(0.8, 0.8),
+                         background='atlas://data/images/defaulttheme/button_pressed')
+
+    show.on_pre_enter()
+    popup_screen.open()
