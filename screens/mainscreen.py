@@ -6,7 +6,7 @@ from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
 from kivy.atlas import Atlas
 import screens.constant
-from screens.PopUpScreen import showChooseLanguageScreen, showHistoryScreen
+from screens.PopUpScreen import showChooseLanguageScreen, showHistoryScreen, showAboutUsScreen
 from screens.chooselanguagetransscreen import ChooseLanguageTransScreen
 from screens.historytranslatescreen import HistoryTranslateScreen
 
@@ -125,8 +125,8 @@ class MainScreen(Screen):
 
         self.selection = []
 
-    def show_about_me_screen(self):
-        pass
+    def show_about_us_screen(self):
+        showAboutUsScreen()
 
     def show_history_screen(self, type_screen: str):
         showHistoryScreen(type_screen, self.change_screen)

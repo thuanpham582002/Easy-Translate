@@ -1,0 +1,49 @@
+<AboutUsScreen>:
+    name: '_about_us_screen_'
+    BoxLayout:
+        size_hint: (1, 1)
+        orientation: 'vertical'
+        ScrollView:
+            bar_color: [0, 0, 255, 1]
+            bar_inactive_color: [1, 1, 255, 1]
+            bar_width: 12
+            bar_margin: 2
+            do_scroll_x: False
+            do_scroll_y: True
+            BoxLayout:
+                adaptive_height: True
+                orientation: 'vertical'
+                BoxLayout:
+                    orientation: "vertical"
+                    padding: "20dp", "0dp", "10dp", "50dp"
+                    size_hint: (1, 0.7)
+                    adaptive_height: True
+                    MDLabel:
+                        adaptive_height: True
+                        text: "Made by Pham Tien Thuan, Pham Quoc Viet and Vu Huu Dat for assignment in Python course at PTIT."
+                    MDLabel:
+                        adaptive_height: True
+                        text: "This is a simple app that allows you to translate text from one language to another. Easy Translate is available for both Windows and Android. This app is still in beta, so there might be some potential bugs. Easy Translate is written in Python using Kivy library for interactive user interface."
+                BoxLayout:
+                    orientation: "vertical"
+                    padding: "0dp", "10dp", "0dp", "10dp"
+                    size_hint: (1, 0.2)
+                    adaptive_height: True
+                    MDIconButton:
+                        id: view_us
+                        text: "Click here to view our source us in GitHub"
+                        icon: "account-group-outline"
+                        theme_icon_color: "Custom"
+                        icon_color: app.theme_cls.primary_color
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint: 0.4, 0.7
+                        on_release:
+                            root.on_click()
+                    MDLabel:
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        halign: "center"
+                        text: "View Our Source"
+                        allow_selection: True
+
+
+
