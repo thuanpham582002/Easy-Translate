@@ -112,6 +112,84 @@ class google_translator:
         freq = freq_initial
         return freq
 
+    def _package_rpc_file(self, path, lang_src='auto', lang_tgt='auto'):
+        GOOGLE_FTF = ["LBEnTe"]
+        # convert file to mime type
+        import mimetypes as mt
+        mime_type = mt.guess_type(path)[0]
+        # read file
+        with open(path, 'rb') as f:
+            file_content = f.read()
+        # convert file to base64
+        import base64
+        file_content_base64 = base64.b64encode(file_content)
+        # convert base64 to string
+        file_content_base64_str = file_content_base64.decode('utf-8')
+        print(file_content_base64_str[0:30])
+        # package rpc
+        parameter = [[file_content_base64_str, mime_type], lang_src, lang_tgt]
+        escaped_parameter = json.dumps(parameter, separators=(',', ':'))
+        rpc = [[[random.choice(GOOGLE_FTF), escaped_parameter, None, "generic"]]]
+        espaced_rpc = json.dumps(rpc, separators=(',', ':'))
+     #   print(espaced_rpc)
+        freq_initial = "f.req={}&".format(quote(espaced_rpc))
+        freq = freq_initial
+        return freq
+
+    def translate_file(self, path, lang_tgt='auto', lang_src='auto'):
+        headers = {
+            "Referer": "http://translate.google.{}/".format(self.url_suffix),
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                          "Chrome/107.0.0.0 Safari/537.36",
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        }
+        freq = self._package_rpc_file(path, lang_tgt, lang_src)
+        response = requests.Request(method='POST',
+                                    url=self.url,
+                                    data=freq,
+                                    headers=headers,
+                                    )
+
+        try:
+            if self.proxies == None or type(self.proxies) != dict:
+                self.proxies = {}
+            with requests.Session() as s:
+                s.proxies = self.proxies
+                r = s.send(request=response.prepare(),
+                           verify=False,
+                           timeout=self.timeout)
+                print(r.status_code)
+            for line in r.iter_lines(chunk_size=1024):
+                decoded_line = line.decode('utf-8')
+                if "LBEnTe" in decoded_line:
+                    try:
+                        response = decoded_line
+                        response = json.loads(response)
+                        response = list(response)
+                        response = json.loads(response[0][2])
+                        response_ = list(response)
+                        file_content_base64_str = response_[0][0]
+                        print(file_content_base64_str[0:30])
+                        mime_type = response_[0][1]
+                        # convert base64 to file
+                        import base64
+                        file_content_base64 = file_content_base64_str.encode('utf-8')
+                        file_content = base64.b64decode(file_content_base64)
+                        # write file
+                        with open('C:\\Users\\thuan\\Desktop\\JD-Android-intern1234.docx', 'wb') as f:
+                            f.write(file_content)
+                    except Exception as e:
+                        raise e
+            r.raise_for_status()
+        except requests.exceptions.ConnectTimeout as e:
+            raise e
+        except requests.exceptions.HTTPError as e:
+            # Request successful, bad response
+            raise e
+        except requests.exceptions.RequestException as e:
+            # Request failed
+            raise e
+
     def translate(self, text, lang_tgt='auto', lang_src='auto', pronounce=False):
         try:
             lang = LANGUAGES[lang_src]
@@ -128,10 +206,8 @@ class google_translator:
             return ""
         headers = {
             "Referer": "http://translate.google.{}/".format(self.url_suffix),
-            "User-Agent":
-                "Mozilla/5.0 (Windows NT 10.0; WOW64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/47.0.2526.106 Safari/537.36",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                          "Chrome/107.0.0.0 Safari/537.36",
             "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
         }
         freq = self._package_rpc(text, lang_src, lang_tgt)
@@ -208,10 +284,8 @@ class google_translator:
             return ""
         headers = {
             "Referer": "http://translate.google.{}/".format(self.url_suffix),
-            "User-Agent":
-                "Mozilla/5.0 (Windows NT 10.0; WOW64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/47.0.2526.106 Safari/537.36",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                          "Chrome/107.0.0.0 Safari/537.36",
             "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
         }
         freq = self._package_rpc(text)
@@ -254,12 +328,13 @@ class google_translator:
             log.debug(str(e))
             raise google_new_transError(tts=self)
 
-    def tts(self, text = "Xin chào từ outroom2014", lang_tgt='en'):
+    def tts(self, text="Xin chào từ outroom2014", lang_tgt='en'):
         if lang_tgt == 'auto':
             lang_tgt = 'en'
         print("TTS" + text + lang_tgt)
         API_ENDPOINT = "https://translate.google.com/translate_tts"
-        headers = {'User-Agent': "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:53.0) Gecko/20100101 Firefox/53.0"}
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                          "Chrome/107.0.0.0 Safari/537.36",}
 
         params = {
             'ie': 'UTF-8',
@@ -277,3 +352,5 @@ class google_translator:
             import os
             path = os.path.abspath("clip.mp3")
             return path
+
+    # https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=jQ1olc&source-path=/&f.sid=5277116546005828741&bl=boq_translate-webserver_20221108.07_p0&hl=vi&soc-app=1&soc-platform=1&soc-device=1&_reqid=1118362&rt=c
