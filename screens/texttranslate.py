@@ -104,7 +104,6 @@ class TextTranslateScreen(Screen):
 
     def text_to_speech(self, type):
         from kivy import platform
-        # run in thread
         path = None
         if type == 'input':
             path = self.translator.tts(text=self.IDS.text_input.text,
@@ -143,7 +142,7 @@ class TextTranslateScreen(Screen):
         tmp = self.ids.text_input.text
         self.ids.text_input.text = self.ids.translated_text.text
         self.ids.translated_text.text = tmp
-
+#this comment reminds that Pham Quoc Viet commited this module by wrong mail
 class MusicPlayerAndroid(object):
     def __init__(self):
         from jnius import autoclass

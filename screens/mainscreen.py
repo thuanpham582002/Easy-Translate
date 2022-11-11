@@ -23,9 +23,6 @@ class MainScreen(Screen):
         super().__init__(**kw)
         self.IDS = None
 
-    # on_kv_post is called after the kv file is loaded
-    # and all widgets are created
-    # on_kv_post run only once time when screen is created
     def on_kv_post(self, base_widget):
         # self._kv_loaded = True
         super().on_kv_post(base_widget)
