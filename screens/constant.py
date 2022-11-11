@@ -64,7 +64,7 @@ list_file_ext_support = [
     '.pdf',
 ]
 list_url_detect = []
-message_dont_support_file = 'This file is not supported, please choose another file (only support .txt .dox .pdf .img ' \
+message_dont_support_file = 'This file is not supported, please choose another type of file (only support .txt .dox .pdf .img ' \
                             '.jpg .jpeg) '
 history_translate = []
 
