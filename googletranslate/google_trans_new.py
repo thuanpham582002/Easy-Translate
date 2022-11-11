@@ -1,6 +1,4 @@
-# coding:utf-8
-# author LuShan
-# version : 1.1.9
+
 import json
 import logging
 import random
@@ -15,7 +13,6 @@ from googletranslate.constant import LANGUAGES, DEFAULT_SERVICE_URLS
 log = logging.getLogger(__name__)
 log.addHandler(logging.NullHandler())
 
-# urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 URLS_SUFFIX = [re.search('translate.google.(.*)', url.strip()).group(1) for url in DEFAULT_SERVICE_URLS]
 URL_SUFFIX_DEFAULT = 'com'
