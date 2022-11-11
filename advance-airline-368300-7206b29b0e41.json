@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "advance-airline-368300",
+  "private_key_id": "7206b29b0e41c5519e856337e42b851515180394",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7S/TbmtyRvmRl\ncMkfbQJhALNQo5pv1A294rZ1lLdEqNtVSfOnx8mHpwo4iatWBUu5II2HxKw1eATf\nCfospD4mDfdxcve607MoeuXAouVhJeudWjY76AvOUbVeq453+s8idM6yIq/i//jZ\nBkYQ2HQf/Yue0BGLAmX3yAvmoQEbS0GPrI+zwNosLypjwJJ8Ix5Nen6L1ap45bHb\n4MEYQdvZUvukqBOjr39gOvzkpOtT//P9xxRRiwaUUBkafyLGFuy7oTURj9Ix7JKE\nutjsaRq4MPdHmv1jXQ5jqhMHKeQfCiKgObUKjlxtCT0r2RW2ppoHa7KpQkTnB+Jl\nN5f9dMSdAgMBAAECggEAW5xV6npPS6xEIAfwIAJqSPcWPimftvYSOKAlHdL9Z0Ru\nb8OpvZWvob3W9nuEBiG1/ZmKEG/myYpoW43eQ6qcSXHIZ8HToRq+RV0DdttWddOd\n8Mu4vkmMSMDXhTRFjbLsUM6wcRodTNtmJQT4DXJKLoGOIsJj6knkhTNgetCioW2x\n287dItRZWZeF5daIaSPNT7L1babLljYIrV03agJr6hwLMzPtnOydXtN29YgcY3A1\nxqf4On4DN03UNEgfgy8hGiMl8B1fVO2FP0vPjU+ARmOgBZ0QQ5A1T9NsJaSQEj1Q\nCXkltV2xlhZcfRNCF/G4x0AQ04ISecQgUg+L/l9EAwKBgQDnfvtMnp5LDpgZtJyg\nGAFV/UL9NBe6RbohBHU0ZQzwFUqrWJQ+w3pFD7w2uIwhi8s5wSL4+VeMgIcCY3/P\nxAM4TKGxSlc8yCRcjKoTWRHsOLvA+OC2aMythYEzTnn3eat3JSvIzxS3vcOswGlS\nSFgDkLH1iZ+yXRl5L2V6n6e5vwKBgQDPH0X7BaFIJatKSQzPGVYDJK+n5R5z9psz\neOSV4NhKTCw1fFc6ZqIJZlWrzlbA3XjoU3Wh4SdUCWc02H8j5TbB+t6YYmW83ctG\nrnXxB/1khmoi1Nae/0GNVqICDq8zL2pRxiOA/4o3BkwWlV+1u6eA9hcDK2Q3eVnq\nc9y6VbaAowKBgE41YzcOe5IF+zLsBuI7WfAwIPqkJ8QBnJFdDS/HV+igeNqMkYDm\nz58XYtHl5UnMDbuUWXld28sW/QW8kciigyf5E8Nuxyw8vbQavbbNp7VzsVLPgjN+\nEnApI24u/Bu0mk4lW7Z655fv33S0iKCI2ltR/h1jAnXi6CE99v3HhIXHAoGAbpT1\n2fXBjDGAaGLkEdYnE/qMRgmP3r31Ut/iuxqWn+RXXh8Ku0V8kaQvbVD3BHW6Td/x\nWAJL6xQyJAbKqrGAMMTt/1HZm6KXGx+eHJf1c6xIElysUatapklwqcSJSbyw+QPe\nhMrqUkJscUpDFVYhMjsxQiHymaOSnBhL6rhEfh0CgYEAyJEeQRc0Wgh/MWYkeoOd\nd3HOuOfow6GGzy9CkBYBOT33MlHvz8bl+e9+daznfT2NZR48Iu3sc09wc9s+gLcB\nkmckEYfLtfaAvd4A5oypoXeBBzmPvsz2bqHSNXSrUHdLlU0kXePkq0Kphd/kuLas\nE6kuVhHt7uSh3+RlKjbbRgo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "thuan-pham-easy-translate@advance-airline-368300.iam.gserviceaccount.com",
+  "client_id": "114362907690073254287",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/thuan-pham-easy-translate%40advance-airline-368300.iam.gserviceaccount.com"
+}

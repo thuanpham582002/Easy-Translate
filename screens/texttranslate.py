@@ -1,5 +1,3 @@
-import socket
-
 from kivy import Logger, platform
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
@@ -21,22 +19,6 @@ def url_detect(text):
     import re
     url = re.findall(regex, text)
     return [x[0] + '://' + x[1] + x[2] for x in url]
-
-
-def internet(host="8.8.8.8", port=53, timeout=3):
-    """
-    Host: 8.8.8.8 (google-public-dns-a.google.com)
-    OpenPort: 53/tcp
-    Service: domain (DNS/TCP)
-    """
-    try:
-        socket.setdefaulttimeout(timeout)
-        socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect((host, port))
-        return True
-    except socket.error as ex:
-        print(ex)
-        return False
-
 
 class TextTranslateScreen(Screen):
     def __init__(self, **kw):
@@ -74,9 +56,6 @@ class TextTranslateScreen(Screen):
 
     def translate(self, text):
         # check internet connection
-        if not internet():
-            self.IDS.translated_text.text = 'No internet connection'
-            return
         try:
             if self.IDS.src_language.text == 'Detect language' == self.IDS.dest_language.text:
                 self.ids.translated_text.text = self.IDS.text_input.text
