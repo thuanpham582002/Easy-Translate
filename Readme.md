@@ -12,6 +12,7 @@
 - Translate text from voice. (coming soon)
 - Translate text from file (txt, docx, pdf, etc). 
 - Translate text from url (web page).
+- Convert document to html.
 - Local history and bookmark
 ## How to use
 - Download the app for your device.
