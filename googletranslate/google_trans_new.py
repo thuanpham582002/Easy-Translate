@@ -425,15 +425,12 @@ class google_translator:
             return path
 
     def convert_file(self, file, file_name, file_path, ext):
-        import webbrowser
-        chrome_path = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
-        edge_path = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
-        webbrowser.register('chrome', None, webbrowser.BackgroundBrowser(chrome_path))
-        webbrowser.register('edge', None, webbrowser.BackgroundBrowser(edge_path))
+        import os
+        os.startfile(file)
         if (ext == "docx"):
             from docx2pdf import convert
             convert(str(file), str(file_path + ".pdf"))
-            webbrowser.get("edge").open(str(file_path + ".pdf"))
+            self.open_with_browser(str(file_path + ".pdf"))
         elif (ext == "xlsx"):
             import asposecellscloud
             cellsApi = asposecellscloud.apis.cells_api.CellsApi("f01b002e-50ce-4e38-b803-c7699ecb34a1",
@@ -444,11 +441,7 @@ class google_translator:
             password = None
             outPath = None
             result = cellsApi.cells_workbook_put_convert_workbook(fullfilename, format=format)
-            webbrowser.get("edge").open(result)
-        else:
-            import os
-            os.startfile(file)
-
+            self.open_with_browser(result)
 
     def open_with_browser(self, file_path):
         import webbrowser
