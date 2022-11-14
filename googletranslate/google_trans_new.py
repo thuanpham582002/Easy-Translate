@@ -296,7 +296,8 @@ class google_translator:
         if not internet():
             return 'Please check your internet connection.'
         file_ext = file_path.split('.')[-1]
-        file_name = file_path.split('/')[-1][:-len(file_ext) - 1]
+        file_name_arr = file_path.split("\\")
+        file_name = file_name_arr[len(file_name_arr) - 1]
         try:
             mime_type = screens.constant.list_file_ext_support[file_ext]
         except KeyError:
@@ -336,7 +337,16 @@ class google_translator:
 
         with open(file_path + '-' + lang_tgt + '.' + file_ext, 'wb') as file:
             file.write(response.document_translation.byte_stream_outputs[0])
+            # import webbrowser
+            # webbrowser.open(file_path + '-' + lang_tgt + "." + "pdf")
             file.close()
+
+
+        w_file = str(file_path + "-" + lang_tgt + "." + file_ext)
+        from docx2pdf import convert
+        convert(w_file, str(file_path + ".pdf"))
+        import webbrowser
+        webbrowser.open(file_name + ".pdf")
 
         print("Response: Detected Language Code - {}".format(response.document_translation.detected_language_code))
         return "Translate successfully"
