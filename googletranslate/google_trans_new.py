@@ -310,6 +310,7 @@ class google_translator:
                 with open(file_path + '-' + lang_tgt + '.' + file_ext, 'wb') as file:
                     file.write(self.translate(text, lang_tgt=lang_tgt).encode('utf-8'))
                     file.close()
+                    self.convert_file(file_path + '-' + lang_tgt + '.' + file_ext, file_name, file_path, file_ext)
                 return "Translate successfully"
             except Exception as e:
                 print(e)
@@ -444,6 +445,10 @@ class google_translator:
             outPath = None
             result = cellsApi.cells_workbook_put_convert_workbook(fullfilename, format=format)
             webbrowser.get("edge").open(result)
+        else:
+            import os
+            os.startfile(file)
+
 
     def open_with_browser(self, file_path):
         import webbrowser
