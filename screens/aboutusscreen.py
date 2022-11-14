@@ -10,8 +10,6 @@ class AboutUsScreen(Screen):
         return super().on_pre_enter(*args)
 
     def on_leave(self, *args):
-
-        print("on_leave")
         return super().on_leave(*args)
 
     def on_click(self):
