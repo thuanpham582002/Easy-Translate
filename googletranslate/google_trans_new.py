@@ -296,7 +296,8 @@ class google_translator:
         if not internet():
             return 'Please check your internet connection.'
         file_ext = file_path.split('.')[-1]
-        file_name = file_path.split('/')[-1][:-len(file_ext) - 1]
+        file_name_arr = file_path.split("\\")
+        file_name = file_name_arr[len(file_name_arr) - 1]
         try:
             mime_type = screens.constant.list_file_ext_support[file_ext]
         except KeyError:
@@ -336,7 +337,13 @@ class google_translator:
 
         with open(file_path + '-' + lang_tgt + '.' + file_ext, 'wb') as file:
             file.write(response.document_translation.byte_stream_outputs[0])
+            # import webbrowser
+            # webbrowser.open(file_path + '-' + lang_tgt + "." + "pdf")
             file.close()
+
+
+        w_file = str(file_path + "-" + lang_tgt + "." + file_ext)
+        self.convert_file(w_file, file_name, file_path, file_ext)
 
         print("Response: Detected Language Code - {}".format(response.document_translation.detected_language_code))
         return "Translate successfully"
@@ -415,3 +422,39 @@ class google_translator:
             import os
             path = os.path.abspath("clip.mp3")
             return path
+
+    def convert_file(self, file, file_name, file_path, ext):
+        import webbrowser
+        chrome_path = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+        edge_path = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+        webbrowser.register('chrome', None, webbrowser.BackgroundBrowser(chrome_path))
+        webbrowser.register('edge', None, webbrowser.BackgroundBrowser(edge_path))
+        if (ext == "docx"):
+            from docx2pdf import convert
+            convert(str(file), str(file_path + ".pdf"))
+            webbrowser.get("edge").open(str(file_path + ".pdf"))
+        elif (ext == "xlsx"):
+            import asposecellscloud
+            cellsApi = asposecellscloud.apis.cells_api.CellsApi("f01b002e-50ce-4e38-b803-c7699ecb34a1",
+                                                                "0f5b39c2a73c8f4dfe0502b3fbf5bbf6", "v3.0")
+
+            fullfilename = file
+            format = 'pdf'
+            password = None
+            outPath = None
+            result = cellsApi.cells_workbook_put_convert_workbook(fullfilename, format=format)
+            webbrowser.get("edge").open(result)
+
+    def open_with_browser(self, file_path):
+        import webbrowser
+        chrome_path = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+        edge_path = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+
+        webbrowser.register('chrome', None, webbrowser.BackgroundBrowser(chrome_path))
+        webbrowser.register('edge', None, webbrowser.BackgroundBrowser(edge_path))
+        webbrowser.get("edge").open(file_path)
+
+
+
+
+
