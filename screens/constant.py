@@ -57,20 +57,22 @@ source_language = 'English'
 destination_language = 'Vietnamese'
 source_language_text = ''
 is_translate_from_file = False
-list_file_ext_support = [
-    '.txt',
-    '.doc',
-    '.docx',
-    '.pdf',
-]
+list_file_ext_support = {
+    'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'pdf': 'application/pdf',
+    'pptx': '	application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    'xlsx': '	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+}
+
 list_url_detect = []
-message_dont_support_file = 'This file is not supported, please choose another file (only support .txt .dox .pdf .img ' \
-                            '.jpg .jpeg) '
+message_dont_support_file = 'This file is not supported, please choose another file (only support .txt .dox .pdf .pttx .xlxs) '
 history_translate = []
 
 
 def save_history_translate():
     with open('history_translate.json', 'w') as file:
+        import os
+        print(os.getcwd())
         json.dump([ob.__dict__ for ob in history_translate], file)
 
 

@@ -28,6 +28,27 @@
             size_hint: 1, 0.8
             orientation: "vertical"
             MDScreen:
+                id: screen_func
+                size_hint: 1, 0.05
+                MDFloatingActionButton:
+                    id: btn_copy
+                    icon: "content-copy"
+                    #pos right screen
+                    size_hint: None, 1
+                    pos: screen_func.width/2 - self.width, -10
+                    md_bg_color: 0, 0, 0, 0.1
+                    on_release:
+                        root.copy_text('input')
+                MDFloatingActionButton:
+                    id: btn_text_to_speech
+                    icon: "volume-high"
+                    #pos right screen
+                    size_hint: None, 1
+                    pos: screen_func.width/2, -10
+                    md_bg_color: 0, 0, 0, 0.1
+                    on_release:
+                        root.text_to_speech('input')
+            MDScreen:
                 size_hint: 1, 0.5
                 padding: 10
                 ScrollView:
@@ -46,6 +67,27 @@
                     pos: scroll_view.width - self.width, -20
                     on_release:
                         root.translate(text_input.text)
+            MDScreen:
+                id: screen_func
+                size_hint: 1, 0.05
+                MDFloatingActionButton:
+                    id: btn_copy
+                    icon: "content-copy"
+                    #pos right screen
+                    size_hint: None, 1
+                    pos: screen_func.width/2 - self.width, -10
+                    md_bg_color: 0, 0, 0, 0.1
+                    on_release:
+                        root.copy_text('output')
+                MDFloatingActionButton:
+                    id: btn_text_to_speech
+                    icon: "volume-high"
+                    #pos right screen
+                    size_hint: None, 1
+                    pos: screen_func.width/2, -10
+                    md_bg_color: 0, 0, 0, 0.1
+                    on_release:
+                        root.text_to_speech('output')
             ScrollView:
                 size_hint: 1, .5
                 MDTextField:

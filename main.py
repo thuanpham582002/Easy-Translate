@@ -1,3 +1,5 @@
+import os
+
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager
 from kivymd.app import MDApp
@@ -9,10 +11,14 @@ from screens.texttranslate import TextTranslateScreen
 from screens.chooselanguagetransscreen import ChooseLanguageTransScreen
 from jnius import autoclass
 
-
 # clone UI from Google Translate
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "advance-airline-368300-7206b29b0e41.json"
+
+
 class WindowManager(ScreenManager):
     pass
+
 
 class EasyTranslateApp(MDApp):
     def __init__(self, **kwargs):
@@ -33,5 +39,6 @@ class EasyTranslateApp(MDApp):
                 return False
             self.root.current = self.root.previous()
             return True
+
 
 EasyTranslateApp().run()

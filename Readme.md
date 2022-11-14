@@ -29,22 +29,63 @@
 <table>
     <tr>
         <td><strong>Homescreen</strong></td>
-        <td><strong>Home select language</strong></td>
+        <td><strong>Select language</strong></td>
     </tr>
     <tr>
-        <td><img src="screenshots/windows_home.png" width="100%"></td>
-        <td><img src="screenshots/windows_search_language.png" width="100%"></td>
+        <td><img src="screenshots/window/windows_home.png" width="100%"></td>
+        <td><img src="screenshots/window/windows_search_language.png" width="100%"></td>
+    <tr>
+        <td><strong>File Chooser</strong></td>
+    </tr>
+    <tr>
+        <td><img src="screenshots/window/windows_file_translate.png" width="100%"></td>
+    <tr>
+        <td><strong>Bookmark</strong></td>
+        <td><strong>History</strong></td>
+    </tr>
+    <tr>
+        <td><img src="screenshots/window/windows_bookmark.png" width="100%"></td>
+        <td><img src="screenshots/window/windows_history.png" width="100%"></td>
     </tr>
     <tr>
         <td><strong>Screen Translate Text</strong></td>
+        <td><strong>Detect Url Translate Web</strong></td>
     </tr>
     <tr>
-        <td><img src="screenshots/windows_screen_translate_text.png" width="100%"></td>
+        <td><img src="screenshots/window/windows_screen_translate_text.png" width="100%"></td>
+         <td><img src="screenshots/window/windows_detect_url_translate.png" width="100%"></td>
     </tr>
 </table>
 
 ### Android
-- Coming Soon
+<table>
+    <tr>
+        <td><strong>Homescreen</strong></td>
+        <td><strong>Select language</strong></td>
+        <td><strong>File Chooser</strong></td>
+    </tr>
+    <tr>
+        <td><img src="screenshots/android/android_home.png" width="100%"></td>
+        <td><img src="screenshots/android/android_search_language.png" width="100%"></td>
+        <td><img src="screenshots/android/android_file_translate.png"></td>
+    <tr>
+        <td><strong>Bookmark</strong></td>
+        <td><strong>History</strong></td>
+    </tr>
+    <tr>
+        <td><img src="screenshots/android/android_bookmark.png" width="100%"></td>
+        <td><img src="screenshots/android/android_history.png" width="100%"></td>
+    </tr>
+    <tr>
+        <td><strong>Screen Translate Text</strong></td>
+        <td><strong>Detect Url Translate Web</strong></td>
+    </tr>
+    <tr>
+        <td><img src="screenshots/android/android_screen_translate_text.png" width="100%"></td>
+         <td><img src="screenshots/android/android_detect_url_translate.png" width="100%"></td>
+    </tr>
+</table>
+
 ## Credits
 - [Python](https://www.python.org/)
 - [Kivy](https://kivy.org/)

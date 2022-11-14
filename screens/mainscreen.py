@@ -1,4 +1,3 @@
-import docx
 from kivy.lang import Builder
 from kivy.properties import ListProperty
 from plyer import filechooser
@@ -9,6 +8,7 @@ import screens.constant
 from screens.PopUpScreen import showChooseLanguageScreen, showHistoryScreen, showAboutUsScreen
 from screens.chooselanguagetransscreen import ChooseLanguageTransScreen
 from screens.historytranslatescreen import HistoryTranslateScreen
+import googletranslate.google_trans_new
 
 Builder.load_file('screens/mainscreen.kv')
 
@@ -22,10 +22,8 @@ class MainScreen(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
         self.IDS = None
+        self.translator = googletranslate.google_trans_new.google_translator()
 
-    # on_kv_post is called after the kv file is loaded
-    # and all widgets are created
-    # on_kv_post run only once time when screen is created
     def on_kv_post(self, base_widget):
         # self._kv_loaded = True
         super().on_kv_post(base_widget)
@@ -92,37 +90,41 @@ class MainScreen(Screen):
         if not len(self.selection):
             return
         path = str(self.selection[0])
-        ext = get_ext_file(self.selection[0])
-        if ext == 'txt':
-            with open(path, 'r') as f:
-                screens.constant.source_language_text = f.read()
+        from kivy import platform
+        if platform == "android":
+            ext = get_ext_file(self.selection[0])
+            if ext == 'txt':
+                with open(path, 'r') as f:
+                    screens.constant.source_language_text = f.read()
+                    screens.constant.is_translate_from_file = True
+                    self.change_screen('_text_translate_screen_')
+
+            elif ext == 'docx':
+                # read text from docx file
+                import docx
+                doc = docx.Document(path)
+                fullText = []
+                for para in doc.paragraphs:
+                    fullText.append(para.text)
+                screens.constant.source_language_text = '\n'.join(fullText)
                 screens.constant.is_translate_from_file = True
                 self.change_screen('_text_translate_screen_')
-
-        elif ext == 'docx':
-            # read text from docx file
-            doc = docx.Document(path)
-            fullText = []
-            for para in doc.paragraphs:
-                fullText.append(para.text)
-            screens.constant.source_language_text = '\n'.join(fullText)
-            screens.constant.is_translate_from_file = True
-            self.change_screen('_text_translate_screen_')
-
-        elif ext == 'pdf':
-            # read text from pdf file
-            from pdfminer.high_level import extract_text
-            text = extract_text(path)
-            screens.constant.source_language_text = text
-            screens.constant.is_translate_from_file = True
-            self.change_screen('_text_translate_screen_')
-
-        elif ext == 'png' or ext == 'jpg' or ext == 'jpeg':
-            # read text from image file
-            self.IDS.btn_enter_text_here.text = 'Image support is coming soon'
+            elif ext == 'pdf':
+                # read text from pdf file
+                from pdfminer.high_level import extract_text
+                text = extract_text(path)
+                screens.constant.source_language_text = text
+                screens.constant.is_translate_from_file = True
+                self.change_screen('_text_translate_screen_')
+            elif ext == 'png' or ext == 'jpg' or ext == 'jpeg':
+                # read text from image file
+                self.IDS.btn_enter_text_here.text = 'Image support is coming soon'
+            else:
+                self.IDS.btn_enter_text_here.text = screens.constant.message_dont_support_file
         else:
-            self.IDS.btn_enter_text_here.text = screens.constant.message_dont_support_file
-
+            self.IDS.btn_enter_text_here.text = self.translator.translate_document(path,
+                                                                                   screens.constant.list_language_dict[
+                                                                                       screens.constant.destination_language])
         self.selection = []
 
     def show_about_us_screen(self):
