@@ -60,8 +60,8 @@ is_translate_from_file = False
 list_file_ext_support = {
     'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     'pdf': 'application/pdf',
-    'pptx': '	application/vnd.openxmlformats-officedocument.presentationml.presentation',
-    'xlsx': '	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    'pptx': 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
 }
 
 list_url_detect = []
