@@ -88,10 +88,8 @@ class HistoryTranslateScreen(Screen):
 
     def get_two_line_avatar_icon_widget(self, x: HistoryTranslate):
         if x.bookmark:
-            print("get_two_line_avatar_icon_star_list_item")
             return self.get_two_line_avatar_icon_star_list_item(x)
         else:
-            print("get_two_line_avatar_icon_star_outline_list_item")
             return self.get_two_line_avatar_icon_star_outline_list_item(x)
 
     def get_two_line_avatar_icon_star_outline_list_item(self, x: HistoryTranslate):
@@ -127,7 +125,6 @@ class HistoryTranslateScreen(Screen):
 
     def on_leave(self, *args):
         self.ids.history_translate_list.clear_widgets()
-        print("on_leave")
         return super().on_leave(*args)
 
     def remove_all_list_item(self):

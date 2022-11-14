@@ -19,7 +19,6 @@ class UrlDetectScreen(Screen):
 
     def on_leave(self, *args):
         self.ids.language_list.clear_widgets()
-        print("on_leave")
         return super().on_leave(*args)
 
 
