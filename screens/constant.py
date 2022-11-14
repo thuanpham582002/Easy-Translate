@@ -65,7 +65,7 @@ list_file_ext_support = {
 }
 
 list_url_detect = []
-message_dont_support_file = 'This file is not supported, please choose another file (only support .txt .dox .pdf .pttx .xlxs) '
+message_dont_support_file = 'This file is not supported, please choose another file (only support .txt .docx .pdf .pttx .xlxs) '
 history_translate = []
 
 
