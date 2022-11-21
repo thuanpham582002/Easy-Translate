@@ -38,13 +38,13 @@
     + Thêm tính năng xóa toàn bộ dữ liệu trong bookmark và history
     + Viết chức năng hiển thị thông tin apps
     - Tham gia vào các chức năng app:
-            * Translate text
-            * Translate file
-            * Translate website
-            * Convert and export text từ file.
-            * Text to speech
-                * App UI
-            * Chỉnh sửa, tối ưu giao diện trên window
+        * Translate text
+        * Translate file
+        * Translate website
+        * Convert and export text từ file.
+        * Text to speech
+        * App UI
+        * Chỉnh sửa, tối ưu giao diện trên window
  
     + Các thư viện đã tìm hiểu và demo trong ứng dụng
     
