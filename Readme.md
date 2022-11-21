@@ -9,6 +9,7 @@
         * Logic, các thành phần trong api của translate.google.com
         * Text to speech
         * Text copy
+        * Export App Apk
     - Tham gia vào các chức năng app:
         * Translate text
         * Translate file
