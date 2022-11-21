@@ -30,7 +30,31 @@
         * **pynjous** - thư viện cho phép sử dụng các thư viện java trên python.
         * **buildozer** - thư viện cho phép export python sang nhiều platform.
         * **mimetypes** - thư viện cho phép lấy định dạng file.
-
+- B20DCCN731 Phạm Quốc Việt:
+    + Cài đặt môi trường ubuntu để làm việc với buidozer.
+    + Lên ý tưởng các features của app, phân tích, tổ chức luồng hoạt động của app sao cho đơn giản nhất có thể, hướng tới việc dễ sử dụng đối với người dùng.
+    + Test app tại android: text to speech, copy function, UI/UX bugs,...
+    + Các thư viện đã tìm hiểu và demo trong ứng dụng
+        * **kivy, kivyMd** - thư viện UI multi - platform
+        * **webbrowser** - thư viện cung cấp giao diện cấp cao cho phép hiển thị các tài liệu dựa trên Web cho người dùng.
+        * **asposecellscloud** - thư viện cho phép convert các xlsx
+ 
+        * **filechooser** - thư viện cho phép mô tả, chọn file và hiển thị trên window và android
+        * **android.media.MediaPlayer** - thư viện Java cho phép phát âm thanh
+        * **buildozer** - thư viện cho phép export python sang nhiều platform.
+        * **pynjous** - thư viện cho phép sử dụng các thư viện java trên python.
+ 
+ 
+    + Module đảm nhiệm:
+        * Thiết lập giao diện người dùng tối ưu cho sự đơn giản dễ dùng bằng kivy phù hợp trên android.
+        * Text to speech với đa ngôn ngữ , function copy.
+        Tìm hiểu về pynjous và triển khai để import các framework của android vào python.
+        * Triển khai MediaPlayer của android để phát Audio tại các thiết bị android. ( thay đổi pitch, accent giọng của AI nói từ text)
+        Sử dụng bulldozer để export sang app ở dạng apk để cài đặt vào các thiết bị android.
+        * Debug, test apk trên emulator của android studio ( android R trở lên) và máy thật ( dưới android R)
+        * Thiết lập tính năng đa ngôn ngữ cho app ( tiếng anh / tiếng việt)
+    + Clean code ( dọn dẹp những phần không cần thiết trong code)
+    
 ## Description
 - This is a simple app that allows you to translate text from one language to another.
 - Easy Translate is available for both Windows and Android.
