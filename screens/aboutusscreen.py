@@ -14,7 +14,7 @@ class AboutUsScreen(Screen):
 
     def on_click(self):
         import webbrowser
-        webbrowser.open("https://github.com/PythonHDN/fa-4_4")
+        webbrowser.open("https://github.com/thuanpham582002/Easy-Translate")
 
 
 
