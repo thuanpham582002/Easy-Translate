@@ -1,17 +1,17 @@
 # Easy Translate App for Windows and Android
 ### made by Pham Tien Thuan and Vu Huu Dat for assignment in Python course at PTIT.
-    - Các thư viện đã tìm hiểu có trong ứng dụng:
-        * **playsound** - Thư viện phát âm thanh trên window
-        * **android.media.MediaPlayer** - Thư viện Java cho phép phát âm thanh
-        * **filechooser** - Thư viện mở cửa sổ chọn file trong android và window.
-        * **requests** - Dùng để gọi api đến https://translate.google.com/
-        * **google-cloud-translate** - Thư viện của google, dùng để dịch tài liệu do không crack được api dịch tài liệu của https://translate.google.com/      
-        * **docx**
-        * **kivy, kivymd** - thư viện UI multi- platform.
-        * **asposecellscloud** - thư viện cho phép convert các xlxs
-        * **pynjous** - thư viện cho phép sử dụng các thư viện java trên python.
-        * **buildozer** - thư viện cho phép export python sang nhiều platform.
-        * **mimetypes** - thư viện cho phép lấy định dạng file.
+- Các thư viện đã tìm hiểu có trong ứng dụng:
+    * **playsound** - Thư viện phát âm thanh trên window
+    * **android.media.MediaPlayer** - Thư viện Java cho phép phát âm thanh
+    * **filechooser** - Thư viện mở cửa sổ chọn file trong android và window.
+    * **requests** - Dùng để gọi api đến https://translate.google.com/
+    * **google-cloud-translate** - Thư viện của google, dùng để dịch tài liệu do không crack được api dịch tài liệu của https://translate.google.com/      
+    * **docx**
+    * **kivy, kivymd** - thư viện UI multi- platform.
+    * **asposecellscloud** - thư viện cho phép convert các xlxs
+    * **pynjous** - thư viện cho phép sử dụng các thư viện java trên python.
+    * **buildozer** - thư viện cho phép export python sang nhiều platform.
+    * **mimetypes** - thư viện cho phép lấy định dạng file.
         
 ## Description
 - This is a simple app that allows you to translate text from one language to another.
