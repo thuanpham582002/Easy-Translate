@@ -153,6 +153,7 @@ class google_translator:
         #   print(espaced_rpc)
         freq_initial = "f.req={}&".format(quote(espaced_rpc))
         freq = freq_initial
+
         return freq
 
     def translate_file(self, path, lang_tgt='auto', lang_src='auto'):
