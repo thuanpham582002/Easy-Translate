@@ -1,5 +1,4 @@
 # Easy Translate App for Windows and Android
-### made by Pham Tien Thuan and Vu Huu Dat for assignment in Python course at PTIT.
 - Các thư viện đã tìm hiểu có trong ứng dụng:
     * **playsound** - Thư viện phát âm thanh trên window
     * **android.media.MediaPlayer** - Thư viện Java cho phép phát âm thanh
